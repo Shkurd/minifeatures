@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider2 test</title>
+</head>
+<body>
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        .slider__wrap {
+            position: relative;
+        }
+
+        .slider1 {
+            width: 100%;
+            height: 100vh;
+            margin: 0px auto;
+
+            background-image: url(man.png), url(forest1.jpeg) ;
+            background-size: 200px, cover;
+            background-repeat: repeat-x, repeat-x;
+            background-position: 0 90%, 0px 0px;
+            animation: 50s para infinite linear;
+        }
+
+        @keyframes para {
+            100% {
+                background-position: 
+                    5000px 99%,
+                    -1000px 100%;
+            }
+        }
+
+        .slider2 {
+            width: 100%;
+            height: 100vh;
+            margin: 0px auto;
+
+            background-image: url(baloon.png), url(sky.jpg) ;
+            background-size: 200px, cover;
+            background-repeat: no-repeat, repeat-x;
+            background-position: 0 10%, 0px 0px;
+        }
+
+        .slider__items.active-slide.slider2 {
+            animation: 30s para2 infinite linear;
+        }
+
+        @keyframes para2 {
+            100% {
+                background-position: 
+                    1000px 70%,
+                    -1000px 100%;
+            }
+        }
+
+        .slider3 {
+            width: 100%;
+            height: 100vh;
+            margin: 0px auto;
+
+            background-image: url(man.png), url(forest1.jpeg) ;
+            background-size: 150px, cover;
+            background-repeat: no-repeat, repeat-x;
+            background-position: 0 100%, 0px 0px;
+        }
+
+        .slider__items.active-slide.slider3 {
+            animation: 20s para3 linear forwards;
+        }
+
+        @keyframes para3 {
+            100% {
+                background-position: 
+                    150px 80%,
+                    -1000px 0%;
+            }
+        }
+
+        .slider4 {
+            width: 100%;
+            height: 100vh;
+            margin: 0px auto;
+
+            background-image: url(baloon.png), url(sky.jpg) ;
+            background-size: 200px, 120vw;
+            background-repeat: no-repeat, no-repeat;
+            background-position: 90% 90%, 0px 0px;
+            /*animation: 5s para4 linear forwards;
+            animation-direction: reverse;*/
+        }
+
+        /*
+        .slider__items.previous-slide.slider4 {
+            animation: 5s para4 linear;
+            animation-direction: reverse;
+            animation-play-state: paused;
+        }
+        */
+        
+        .slider__items.previous-slide.slider4 {
+            background-image: url(baloon.png), url(sky.jpg) ;
+            background-size: 200px, 120vw;
+            background-repeat: no-repeat, no-repeat;
+            background-position: 500px 70%, -100px 10%;
+            /*scale: 2;*/
+            animation: 5s para4prev linear forwards;
+            /*animation-play-state: paused;*/
+        }
+        
+        
+        .slider__items.active-slide.slider4 {
+            animation: 5s para4 linear forwards;
+            animation-direction: normal;
+            animation-play-state: running;
+            /*scale: 2;*/
+        }
+
+        @keyframes para4 {
+            100% {
+                background-position: 
+                    500px 70%,
+                    -100px 10%;
+            }
+        }
+
+        @keyframes para4prev {
+            100% {
+                background-position: 90% 90%, 0px 0px;
+            }
+        }
+        
+        
+
+        .slider__buttons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .slider__button {
+            width: 100px;
+            height: 10px;
+            border-radius: 8px;
+            background-color: rgb(99, 101, 255);
+            margin: 10px 20px;
+            cursor: pointer;
+        }
+
+        .slider__button.active-button {
+            background-color: red;
+        }
+
+        .slider__items {
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: 1s;
+        }
+
+        .slider__items.active-slide {
+            opacity: 1;
+            transition: 1s;
+        }
+
+
+        .slider__buttons-wrap {
+            position: absolute;
+            z-index: 100;
+            width: 100%;
+            min-height: 20px;
+            background: black;
+            bottom: -99vh;
+        }
+
+
+
+
+        
+
+    </style>
+    <section>
+
+        <div class="slider__wrap">
+            <div class="slider__items active-slide slider1">
+                <div class="slider__item-first">
+                    <!-- <img src="forest1.jpeg" alt=""> -->
+                </div>
+                <!-- <div class="slider__item-last">
+                    <img src="man.jpeg" alt="">
+                </div> -->
+            </div>
+            <div class="slider__items slider2">
+                <!-- <div class="slider__item-first">
+                    <img src="sky.jpeg" alt="">
+                </div>
+                <div class="slider__item-last">
+                    <img src="baloon.png" alt="">
+                </div> -->
+            </div>
+
+            <div class="slider__items slider3">
+                <!-- <div class="slider__item-first">
+                    <img src="sky.jpeg" alt="">
+                </div>
+                <div class="slider__item-last">
+                    <img src="baloon.png" alt="">
+                </div> -->
+            </div>
+            <div class="slider__items slider4">
+                <!-- <div class="slider__item-first">
+                    <img src="sky.jpeg" alt="">
+                </div>
+                <div class="slider__item-last">
+                    <img src="baloon.png" alt="">
+                </div> -->
+            </div>
+
+            <div class="slider__buttons-wrap">
+                <div class="slider__buttons">
+                    <span class="slider__button active-button" data-slider="0"> </span>
+                    <span class="slider__button" data-slider="1"> </span>
+                    <span class="slider__button" data-slider="2"> </span>
+                    <span class="slider__button" data-slider="3"> </span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+    // forEach
+    let btns = document.querySelectorAll(".slider__button");
+    let slides = document.querySelectorAll(".slider__items");
+
+    if (btns) {
+
+        btns.forEach((item, idx) => {
+
+            item.addEventListener('click',  () => {
+
+                let current = document.querySelectorAll(".active-button");
+                let slidesActive = document.querySelectorAll(".active-slide");
+
+                if (current.length > 0 && !item.classList.contains('active-button')) {
+
+                    current[0].className = current[0].className.replace(" active-button", "");
+                    let slidesPrevious = document.querySelectorAll(".previous-slide");
+
+                    if (slidesPrevious.length > 0) {
+                        console.log('slidesPrevious[0]: ', slidesPrevious[0]);
+                        slidesPrevious[0].className = slidesPrevious[0].className.replace(" previous-slide", "");
+                        console.log('slidesPrevious[0]: ', slidesPrevious[0]);
+                    }
+
+                    slidesActive[0].className = slidesActive[0].className.replace(" active-slide", " previous-slide");
+                    item.className += " active-button";
+                    slides[item.dataset.slider].className += " active-slide";
+                }
+
+            });
+
+        });
+    }
+
+
+
+
+
+
+
+
+
+    </script>
+
+    
+</body>
+</html>
