@@ -24,23 +24,15 @@
 
     <main>
 
-      <button popovertarget="myPopover"> Open Popover </button>
+      <button popovertarget="myPopover" popovertargetaction="show"> Open Popover </button>
 
       <div id="myPopover" popover>
+        <p>Test popover!<p></p>
         <p>I am a popover with more information!<p>
-        <button id="closeButton">Close popover</button>
+        <button popovertarget="myPopover" popovertargetaction="hide"> Close popover </button>
       </div>
     
     </main>
-
-    <script type="text/JavaScript">  
-
-      const myPopover = document.querySelector('#myPopover')
-      const closeBtn = myPopover.querySelector('#closeButton')
-
-      closeBtn.onclick = () => myPopover.hidePopover()
-
-    </script> 
 
 </body>
 </html>
