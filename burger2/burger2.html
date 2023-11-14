@@ -8,6 +8,9 @@
 </head>
 <body>
 
+    <!--
+        Еще пример на css https://codepen.io/chriiss/pen/qBJjLEx
+    -->
     <style>
         
         .burger {
@@ -142,11 +145,30 @@
 
     <script>
         const burger = document.querySelector(".burger");
+        if (burger) {
+            burger.addEventListener("click", function() {
+                if (document.body.classList.contains('menu-active-open')) {
+                    document.body.classList.remove('menu-active-open')
+                    burger.classList.remove('open');
+                } else {
+                    document.body.classList.add('menu-active-open')
+                    burger.classList.add('open');
+                }
+            });
+        }
 
-        burger.addEventListener("click", function(){
-            burger.classList.toggle("open");
-            document.body.classList.toggle('menu-active-open')
-        });
+        function handleResize() {
+            if (window.innerWidth <= 1199 && document.body.classList.contains('menu-active-open')) {
+                document.body.classList.add('menu-active-open')
+                burger.classList.add('open');
+            } else {
+                document.body.classList.remove('menu-active-open')
+                burger.classList.remove('open');
+            }
+        }
+
+        window.addEventListener("resize", handleResize);
+    
     </script>
     
 </body>
