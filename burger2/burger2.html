@@ -55,6 +55,11 @@
             margin: 0;
         }
 
+        main {
+            min-height: 100vh;
+            background: lightgoldenrodyellow;
+        }
+
         .container {
             padding: 5px 5%;
         }
@@ -76,9 +81,15 @@
 
         .menu-items {
             display: block;
+            z-index: 10000;
 
             @media (max-width: 1199px) {
                 display: none;
+                /*
+                transition: left 0.5s ease;
+                left: -50%;
+                min-width: 100%;
+                */
             }
         }
 
@@ -103,9 +114,14 @@
             display: block;
             position: absolute;
             left: 0;
+            /*
+            position: relative;
+            left: 0;
+            */
             top: 91px;
             width: 100%;
             background: rgb(102, 229, 102);
+            transition: left 0.5s ease;
         }
 
         .menu-active-open .menu-items ul {
@@ -142,6 +158,9 @@
             </div> 
         </nav>
     </header>
+    <main>
+        Контент тут
+    </main>    
 
     <script>
         const burger = document.querySelector(".burger");
