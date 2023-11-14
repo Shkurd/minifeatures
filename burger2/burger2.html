@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>burger</title>
+</head>
+<body>
+
+    <style>
+        
+        .burger {
+            cursor: pointer;
+            width: 30px;
+            margin: 0;
+            display: none;
+
+            @media (max-width: 1199px) {
+                display: block;
+            }
+        }
+        
+        .burger span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            margin-bottom: 5px; /* Редактировать значение, если нужно */
+            border-radius: 10px;
+            background-color: #fff;
+            position: relative;
+            top: 0;
+            transition: all .3s ease-in-out;
+        }
+        
+        .burger.open span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .burger.open span:nth-child(1) {
+            transform: rotate(45deg);
+            top: 8px; /* Редактировать значение, если нужно */
+        }
+        
+        .burger.open span:nth-child(3) {
+            transform: rotate(-45deg);
+            top: -8px; /* Редактировать значение, если нужно */
+        }
+
+        /* not burger styles*/
+        body {
+            margin: 0;
+        }
+
+        .container {
+            padding: 5px 5%;
+        }
+
+        header {
+            position: relative;
+            height: 80px;
+            background: rgb(102, 229, 102);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-items {
+            display: block;
+
+            @media (max-width: 1199px) {
+                display: none;
+            }
+        }
+
+        .menu-items ul {
+            padding: 0;
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+            font-size: 18px;
+        }
+
+        .menu-items ul li{
+            margin: 5px 10px;
+        }
+
+        .menu-items a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .menu-active-open .menu-items {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 91px;
+            width: 100%;
+            background: rgb(102, 229, 102);
+        }
+
+        .menu-active-open .menu-items ul {
+            flex-direction: column;
+        }
+
+
+    </style>    
+
+    <header class="container">
+
+        <div class="logo">
+            <a href="#">LOGO HERE</a>
+        </div>
+        <nav>
+            <div class="menu-items">
+                <ul>
+                    <li>
+                        <a href="#">menu 1</a>
+                    </li>
+                    <li>
+                        <a href="#">menu 2</a>
+                    </li>
+                    <li>
+                        <a href="#">menu 3</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div> 
+        </nav>
+    </header>
+
+    <script>
+        const burger = document.querySelector(".burger");
+
+        burger.addEventListener("click", function(){
+            burger.classList.toggle("open");
+            document.body.classList.toggle('menu-active-open')
+        });
+    </script>
+    
+</body>
+</html>
